@@ -1,0 +1,229 @@
+/* ESTILOS BASE (Mobile First) */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden; /* Previene scroll horizontal no deseado */
+}
+
+/* Flexbox para la Cabecera */
+.header-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ffcb05; /* Amarillo Pokémon */
+    color: #3b4cca; /* Azul Pokémon */
+    padding: 40px 20px;
+}
+
+/* CSS Grid para la estructura principal: En móvil es de 1 sola columna */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna que ocupa el 100% */
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Flexbox para el contenedor de tarjetas */
+.cards-container {
+    display: flex;
+    flex-direction: column; /* En móvil, las tarjetas se apilan verticalmente */
+    gap: 20px;
+}
+
+/* Estilos individuales de las tarjetas */
+.card-poke {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card-poke:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #198754;
+}
+
+/* Botón flotante Ir Arriba */
+#btnScrollTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none; /* Se oculta por defecto, se activa por JS */
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-weight: bold;
+    z-index: 1000;
+}
+
+#btnScrollTop:hover {
+    background-color: #c82333;
+}
+
+
+/* -------------------------------------------
+   MEDIA QUERIES 
+------------------------------------------- */
+
+/* 1. TABLET (768px o más) */
+@media (min-width: 768px) {
+    /* La cuadrícula cambia a 2 columnas: Sidebar + Contenido */
+    .main-grid {
+        grid-template-columns: 250px 1fr;
+    }
+
+    /* Las tarjetas pasan a mostrarse en filas gracias a flex-row */
+    .cards-container {
+        flex-direction: row;
+        flex-wrap: wrap; /* Permite que bajen a la siguiente línea si no caben */
+        justify-content: space-between;
+    }
+
+    .card-poke {
+        width: calc(50% - 10px); /* 2 tarjetas por fila */
+    }
+}
+
+/* 2. DESKTOP (1024px o más) */
+@media (min-width: 1024px) {
+    .main-grid {
+        max-width: 1200px; /* Centra el contenido en pantallas muy anchas */
+        margin: 0 auto;
+    }
+
+    .card-poke {
+        width: calc(33.333% - 14px); /* 3 tarjetas por fila */
+    }
+}
+/* ==========================================================================
+   ESTILOS DEL FOOTER RESPONSIVO
+   ========================================================================== */
+
+.custom-footer {
+    background-color: #1a1c20; /* Fondo gris oscuro profesional */
+    color: #ffffff;
+    padding: 40px 20px; /* Espaciado vertical y horizontal */
+    width: 100%;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Contenedor Flexbox para alinear los iconos */
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Espacio entre cada icono */
+    flex-wrap: wrap; /* Evita que se desborde en pantallas muy pequeñas */
+}
+
+/* Estilos base de los iconos */
+.social-icon {
+    color: #ffffff; /* Color blanco por defecto */
+    font-size: 28px; /* Tamaño legible */
+    text-decoration: none;
+    display: inline-block;
+    /* Transición suave de 0.3 segundos para color y movimiento */
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+/* -------------------------------------------
+   EFECTOS HOVER (Colores personalizados)
+   ------------------------------------------- */
+
+/* Facebook: Azul */
+.social-icon.facebook:hover {
+    color: #1877F2; 
+    transform: translateY(-3px); /* Pequeño salto hacia arriba */
+}
+
+/* Instagram: Rosa / Naranja */
+.social-icon.instagram:hover {
+    color: #E1306C; 
+    transform: translateY(-3px);
+}
+
+/* Twitter / X: Negro con un leve brillo blanco para resaltar */
+.social-icon.twitter:hover {
+    color: #000000; 
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* LinkedIn: Azul Oscuro */
+.social-icon.linkedin:hover {
+    color: #0077B5; 
+    transform: translateY(-3px);
+}
+
+/* Texto de Copyright */
+.footer-text {
+    font-size: 14px;
+    color: #8a8d93;
+    margin-top: 5px;
+}
+
+/* -------------------------------------------
+   RESPONSIVIDAD (Ajustes para móviles pequeños)
+   ------------------------------------------- */
+@media (max-width: 480px) {
+    .custom-footer {
+        padding: 30px 15px; /* Menos espacio vertical en móviles */
+    }
+    .social-icons-container {
+        gap: 20px; /* Iconos un poco más juntos */
+    }
+    .social-icon {
+        font-size: 26px; /* Iconos sutilmente más pequeños */
+    }
+}
