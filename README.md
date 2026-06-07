@@ -21,3 +21,5 @@ Para registrar tus cambios de manera efectiva, sigue este flujo estándar:
 1. Preparar archivos: `git add .`
 2. Confirmar cambios: `git commit -m "mensaje"`
 3. Verificar estado: `git status`
+
+revisar github page: https://ronaldstark881-dev.github.io/e-commerce-page/ 
